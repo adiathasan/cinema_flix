@@ -3,8 +3,9 @@ from .views import *
 
 
 urlpatterns = [
-    path('', home_page, name='home_page'),
-    path('create/', create, name='create'),
+    path('', base, name='base'),
+    path('User_account/', home_page, name='home_page'),
+    path('create/', home_page, name='create'),
     path('edit/<str:movie_id>', edit, name='edit'),
     path('delete/<str:movie_id>', delete, name='delete'),
     path('login/', login_user, name='login'),

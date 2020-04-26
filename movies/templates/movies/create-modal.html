@@ -8,31 +8,30 @@
                 </button>
 			</div>
             <div class="modal-body">
+
             	<form action="{% url 'create' %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="movieName">Name</label>
-                        <input type="text" class="form-control" id="movieName" placeholder="Enter name" name="name" required/>
+                        <label for="movieName">Name: {{form.name}}</label>
+
                     </div>
 
                     <div class="form-group">
-                    	<label for="moviePicture">Picture</label>
-                        <input type="text" class="form-control" id="moviePicture" placeholder="Image URL" name="picture"/>
+                    	<label for="moviePicture">Picture(Url): {{form.picture}} </label>
+
                     </div>
 
                     <div class="form-group">
-                    	<label for="movieRating">Rating</label>
-                        <input type="number" class="form-control" id="movieRating" placeholder="1-10" name="rating" min="0" max="10" required/>
+                    	<label for="movieRating">Rating: {{form.rating}}</label>
                     </div>
 
                     <div class="form-group">
-                    	<label for="movieNotes">Notes</label>
-                        <textarea name="notes" id="movieNotes" class="form-control"></textarea>
-                    </div>
+                    	<label for="movieNotes">Notes: {{form.notes}} </label>
 
+                    </div>
                     <button type="submit" class="btn btn-primary">Create new movie</button>
-
             	</form>
+
             </div>
 		</div>
 	</div>
