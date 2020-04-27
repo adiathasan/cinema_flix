@@ -31,7 +31,7 @@ def home_page(request):
 
 
 @login_required(login_url='login')
-def edit(request, movie_id):
+def edit(request, pk):
     if request.method == 'POST':
         data = {
             'name': request.POST.get('name'),
@@ -40,7 +40,7 @@ def edit(request, movie_id):
             'notes': request.POST.get('notes')
         }
         try:
-            movie_obj = Movie.objects.get(id=movie_id)
+            movie_obj = Movie.objects.get(id=pk)
             movie_obj.name = data.get('name')
             movie_obj.picture = data.get('picture')
             movie_obj.rating = data.get('rating')
@@ -59,9 +59,9 @@ def delete(request, movie_id):
         movie_obj = Movie.objects.get(id=movie_id)
         movie_name = movie_obj.name
         movie_obj.delete()
-        messages.warning(request, 'Deleted movie: {}'.format(movie_name))
+        messages.warning(request, f'Deleted movie: {movie_name}')
     except Exception as e:
-        messages.warning(request, 'Got an error when trying to delete a movie: {}'.format(e))
+        messages.warning(request, f'Got an error when trying to delete a movie: {e}')
     return redirect('home_page')
 
 
