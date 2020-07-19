@@ -1,5 +1,4 @@
 # Clever Movie Full Stack App
-This is a project from a Clever Programmer's course.
 
 ## Contents
 
